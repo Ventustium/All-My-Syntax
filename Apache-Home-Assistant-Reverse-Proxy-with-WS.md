@@ -1,3 +1,4 @@
+```
 <VirtualHost *:80>
         ServerName ventustium.com
         ServerAdmin kevin@ventustium.com
@@ -28,3 +29,4 @@
         SSLCertificateFile /etc/letsencrypt/live/ventustium.com-0001/fullchain.pem
         SSLCertificateKeyFile /etc/letsencrypt/live/ventustium.com-0001/privkey.pem
 </VirtualHost>
+```

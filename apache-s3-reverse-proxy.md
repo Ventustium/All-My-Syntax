@@ -25,6 +25,8 @@
         ProxyPreserveHost On
         ProxyPass / http://localhost:<port>/
         ProxyPassReverse / http://localhost:<port>/
+        RequestHeader set X-Forwarded-Proto "https"
+        RequestHeader set X-Forwarded-SSL "on"
 
         <IfModule mod_rewrite.c>
                 RewriteEngine on

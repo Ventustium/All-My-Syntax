@@ -19,6 +19,8 @@
         ProxyPassReverse /api/websocket ws://localhost:<port>/api/websocket
         ProxyPass / http://localhost:<port>/
         ProxyPassReverse / http://localhost:<port>/
+        RequestHeader set X-Forwarded-Proto "https"
+        RequestHeader set X-Forwarded-SSL "on"
 #---------- Optional, because its already Reverse using
 #---------- ProxyPass /api/websocket ws://localhost:<port>/api/websocket
 #---------- ProxyPassReverse /api/websocket ws://localhost:<port>/api/websocket

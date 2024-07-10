@@ -1,3 +1,12 @@
+Enable mods first
+```bash
+a2enmod ssl
+a2enmod proxy
+a2enmod proxy_balancer
+a2enmod proxy_wstunnel
+a2enmod proxy_http
+a2enmod headers
+```
 ```
 <VirtualHost *:80>
         ServerName <domain>

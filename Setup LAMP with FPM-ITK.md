@@ -2,7 +2,7 @@
 apt install ca-certificates apt-transport-https software-properties-common
 add-apt-repository ppa:ondrej/php
 apt update
-apt install apache2
+apt install apache2 libapache2-mpm-itk
 apt install mariadb-server
 mysql_secure_installation
 sudo apt install php-cli unzip

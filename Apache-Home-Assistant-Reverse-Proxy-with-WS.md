@@ -3,6 +3,8 @@
         ServerName <domain>
         ServerAdmin kevin@ventustium.com
 
+        RedirectMatch ^/(.*)$ https://<domain>/
+
         ErrorLog ${APACHE_LOG_DIR}/<domain>.error.log
         CustomLog ${APACHE_LOG_DIR}/<domain>.access.log combined
 </VirtualHost>

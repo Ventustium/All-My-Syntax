@@ -5,7 +5,7 @@ apt update
 apt install apache2 libapache2-mpm-itk
 apt install mariadb-server
 mysql_secure_installation
-sudo apt install php-cli unzip
+sudo apt install php8.1 php8.1-{fpm,cli,mysql,pgsql,zip,yaml,xml,gd,curl,json,snmp}
 a2enconf php8.1-fpm
 a2enmod rewrite
 a2enmod mpm_itk

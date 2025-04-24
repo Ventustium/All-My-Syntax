@@ -10,6 +10,7 @@ a2enconf php8.1-fpm
 a2enmod rewrite
 a2enmod mpm_itk
 a2enmod proxy_wstunnel
+a2enmod proxy_fcgi
 ```
 
 Apache2 Sites Configuration

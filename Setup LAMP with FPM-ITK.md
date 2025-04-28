@@ -1,16 +1,19 @@
 ```bash
 apt install ca-certificates apt-transport-https software-properties-common
 add-apt-repository ppa:ondrej/php
-apt update
-apt install apache2 libapache2-mpm-itk
-apt install mariadb-server
-mysql_secure_installation
-sudo apt install php8.1 php8.1-{fpm,cli,mysql,pgsql,zip,yaml,xml,gd,curl,mbstring,snmp,intl,soap}
-a2enconf php8.1-fpm
+apt update && apt upgrade -y
+apt install apache2 libapache2-mpm-itk mariadb-server -y
+sudo apt install php8.4 php8.4-{fpm,cli,mysql,pgsql,zip,yaml,xml,gd,curl,mbstring,snmp,intl,soap} -y
+a2enconf php8.4-fpm
 a2enmod rewrite
 a2enmod mpm_itk
 a2enmod proxy_wstunnel
 a2enmod proxy_fcgi
+```
+
+Configure MySQL
+```bash
+mysql_secure_installation
 ```
 
 Apache2 Sites Configuration
@@ -27,7 +30,7 @@ Apache2 Sites Configuration
         AssignUserId kevin kevin
     </IfModule>
     <FilesMatch \.php$>
-    SetHandler "proxy:unix:/run/php/php8.1-kevin-fpm.sock|fcgi://localhost"
+    SetHandler "proxy:unix:/run/php/php8.4-kevin-fpm.sock|fcgi://localhost"
     </FilesMatch>
     #RewriteEngine on
     #RewriteCond %{SERVER_NAME} =ventustium.com
@@ -46,7 +49,7 @@ Apache2 Sites Configuration
         AssignUserId kevin kevin
     </IfModule>
     <FilesMatch \.php$>
-        SetHandler "proxy:unix:/run/php/php8.1-kevin-fpm.sock|fcgi://localhost"
+        SetHandler "proxy:unix:/run/php/php8.4-kevin-fpm.sock|fcgi://localhost"
     </FilesMatch>
 
     #Include /etc/letsencrypt/options-ssl-apache.conf
@@ -58,7 +61,7 @@ Apache2 Sites Configuration
 
 Pool location
 ```bash
-cd /etc/php/8.1/fpm/pool.d
+cd /etc/php/8.4/fpm/pool.d
 vim kevin.conf
 ```
 
@@ -69,7 +72,7 @@ Pool Example configuration
 user = kevin
 group = kevin
 
-listen = /run/php/php8.1-kevin-fpm.sock
+listen = /run/php/php8.4-kevin-fpm.sock
 
 listen.owner = kevin
 listen.group = kevin

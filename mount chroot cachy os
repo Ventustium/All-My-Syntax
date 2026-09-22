@@ -1,0 +1,11 @@
+```
+cryptsetup luksOpen /dev/nvme0n1p2
+cryptsetup luksOpen /dev/nvme0n1p2 root
+mkdir -p /mnt/sysroot
+mount -o subvol=@ /dev/mapper/root /mnt/sysroot/
+mount --bind /dev /mnt/sysroot/dev
+mount --bind /proc /mnt/sysroot/proc
+mount --bind /sys /mnt/sysroot/sys
+mount /dev/nvme0n1p1 /mnt/sysroot/boot/
+chroot /mnt/sysroot/
+```
